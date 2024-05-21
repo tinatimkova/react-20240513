@@ -6,7 +6,7 @@ export const Restaurant = ({ restaurant }) => {
         <div>
             <h2>{restaurant.name}</h2>
             <h3>Menu</h3>
-            <Menu items={restaurant.menu} />
+            <Menu dishes={restaurant.menu} />
             <h3>Reviews</h3>
             <Reviews reviews={restaurant.reviews}/>
         </div>

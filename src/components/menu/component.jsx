@@ -1,10 +1,10 @@
-import { MenuItem } from '../menuItem/component.jsx';
+import { Dish } from '../dish/component.jsx';
 
-export const Menu = ( { items } ) => {
+export const Menu = ( { dishes } ) => {
     return (
         <ul>
-            {items.map(item => (
-                <li><MenuItem item={item} /></li>
+            {dishes.map(dish => (
+                <li><Dish dish={dish} /></li>
             ))}
         </ul>
     )
