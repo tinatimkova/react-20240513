@@ -5,7 +5,7 @@ import { Layout } from './components/layout/component.jsx';
 export const App = () => {
     return (
             <Layout>
-            <Restaurants restaurants={restaurants} />
+            {!!restaurants?.length && <Restaurants restaurants={restaurants} />}
             </Layout>
     );
 };

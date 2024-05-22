@@ -2,10 +2,13 @@ import { Dish } from '../dish/component.jsx';
 
 export const Menu = ( { dishes } ) => {
     return (
-        <ul>
-            {dishes.map(dish => (
-                <li><Dish dish={dish} /></li>
-            ))}
-        </ul>
+        <div>
+            <h3>Menu</h3>
+            <ul>
+                {dishes.map(dish => (
+                    !!dish && <li><Dish dish={dish} /></li>
+                ))}
+            </ul>
+        </div>
     )
 }
