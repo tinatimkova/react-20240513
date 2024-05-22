@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import { Restaurant } from '../restaurant/component.jsx';
+import { Tabs } from '../tabs/component.jsx';
 
 export const Restaurants = ( { restaurants } ) => {
 
-    const [active, setActive] = useState(0);
+    const [active, setActive] = useState(restaurants[0].id);
 
     return (
-        <main>
-            {restaurants.map((restaurant, index) => 
+        <div>
+             <Tabs restaurants={restaurants} setActive={setActive} />
+            {restaurants.map((restaurant) => 
             !!restaurant && 
-            <Restaurant 
-            restaurant={restaurant} 
-            index={index} 
-            setActive={setActive} 
-            active={active} /> 
+            restaurant.id == active && 
+            <Restaurant restaurant={restaurant} /> 
           )}
-        </main>
+        </div>
     );
 }
