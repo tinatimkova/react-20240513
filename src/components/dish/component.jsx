@@ -7,7 +7,7 @@ export const Dish = ( { dish } ) => {
     return (
         <div>
             <Counter />
-            <span>{name}: {ingredients.join(", ")} - ${price}</span>
+            <span>{name}: {ingredients?.join(", ")} - ${price}</span>
         </div>
         );
 }
