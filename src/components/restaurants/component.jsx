@@ -9,11 +9,9 @@ export const Restaurants = ( { restaurants } ) => {
     return (
         <div>
              <Tabs restaurants={restaurants} setActive={setActive} />
-            {restaurants.map((restaurant) => 
-            !!restaurant && 
-            restaurant.id == active && 
-            <Restaurant restaurant={restaurant} /> 
-          )}
+             <Restaurant restaurant={
+              restaurants.find(restaurant => restaurant.id == active)
+              } /> 
         </div>
     );
 }

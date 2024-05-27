@@ -7,7 +7,7 @@ export const Restaurant = ({ restaurant }) => {
 
     return (
         <div>
-            <h2>{!!name && name}</h2>
+            <h2>{name || 'Unknown'}</h2>
             {!!menu?.length && <Menu dishes={menu} />}
             {!!reviews?.length && <Reviews reviews={reviews}/>}
         </div>
