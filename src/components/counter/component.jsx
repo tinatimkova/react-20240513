@@ -1,20 +1,11 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-export const Counter = () => {
+export const Counter = ({count, increment, decrement}) => {
 
-    const [count, setCount] = useState(0);
-
-    const decrement = () => {
-        if (count > 0) {
-            setCount(count - 1);
-        }
-    }
-
-    const increment = () => {
-        if (count < 5) {
-            setCount(count+1);
-        }
-    }
+    useEffect(() => {
+        increment();
+        decrement();
+    }, [increment, decrement]);
 
     return (
         <div>
