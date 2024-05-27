@@ -1,5 +1,13 @@
+import { Counter } from '../counter/component';
+
 export const Dish = ( { dish } ) => {
+
+    const { name, ingredients, price } = dish;
+
     return (
-    <span>{dish.name}: {dish.ingredients.join(", ")} - ${dish.price}</span>
-    );
+        <div>
+            <Counter />
+            <span>{name}: {ingredients?.join(", ")} - ${price}</span>
+        </div>
+        );
 }
