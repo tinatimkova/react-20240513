@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export const ScrollProgressBar = () => {
-    const [scroll, setScroll] = useState(0);
+    const [pageScrollY, setPageScrollY] = useState(0);
 
-    const onScroll = () => {
-        const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        setScroll(window.scrollY/(maxScroll)*100);
-    };
+    const onPageScrollY = useCallback(() => {
+        const maxPageScrollY = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        setPageScrollY(window.scrollY/(maxPageScrollY)*100);
+    }, []); 
 
     useEffect(() => {
-        window.addEventListener('scroll', onScroll);
-    }, [onScroll]);
+        window.addEventListener('scroll', onPageScrollY);
+    }, []);
 
-    return <div style={{backgroundColor: 'red', height: '5px', width: `${scroll}%`}}></div>;
+    return <div style={{backgroundColor: 'red', height: '5px', width: `${pageScrollY}%`}}></div>;
 };
