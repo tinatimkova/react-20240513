@@ -11,18 +11,15 @@ const reducer = (state, {type, payload}) => {
             return {...state, text: payload};
         case "setRating": 
             return {...state, rating: payload};
-        case "submitForm": 
+        case "resetForm": 
             return {...DEFAULT_FORM_STATE};
         default: 
             return state;
     }
 }
 
-
 export const NewReviewForm = () => {
     const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_STATE);
-
-    console.log(form);
 
     return (
         <div>
@@ -44,7 +41,7 @@ export const NewReviewForm = () => {
                     <Rating currentRating={form.rating} onRatingChange={dispatch} />
                 </div>
             </form>
-            <button onClick={() => dispatch({type: "submitForm"})}>Save</button>
+            <button onClick={() => dispatch({type: "resetForm"})}>Save</button>
         </div>
     );
 };
