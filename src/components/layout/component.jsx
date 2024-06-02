@@ -1,11 +1,11 @@
 import { Header } from '../header/component.jsx';
 import { Footer } from '../footer/component.jsx';
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children, onThemeChange }) => {
     return (
-    <div>
-        <Header />
-        { children }
-        <Footer />
-    </div>);
+        <div>
+            <Header toggleTheme={onThemeChange}/>
+            { children }
+            <Footer />
+        </div>);
 };

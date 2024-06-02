@@ -1,6 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { ThemeContext } from '../../contexts/theme';
 
 export const Counter = ({count, increment, decrement}) => {
+
+    const theme = useContext(ThemeContext);
 
     useEffect(() => {
         increment();
@@ -9,8 +12,8 @@ export const Counter = ({count, increment, decrement}) => {
 
     return (
         <div>
-            <button onClick={decrement}>-</button>
+            <button onClick={decrement} style={theme}>-</button>
                 {count}
-            <button onClick={increment}>+</button>
+            <button onClick={increment} style={theme}>+</button>
         </div>);
 };

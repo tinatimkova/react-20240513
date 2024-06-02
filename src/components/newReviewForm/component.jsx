@@ -1,5 +1,6 @@
-import { useReducer } from 'react';
+import { useReducer, useContext } from 'react';
 import { RatingInput } from '../ratingInput/component';
+import { ThemeContext } from '../../contexts/theme';
 
 const DEFAULT_FORM_STATE = {name: '', text: '', rating: 1};
 
@@ -20,8 +21,7 @@ const reducer = (state, {type, payload}) => {
 
 export const NewReviewForm = () => {
     const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_STATE);
-
-    console.log(form);
+    const theme = useContext(ThemeContext);
 
     return (
         <div>
@@ -40,10 +40,10 @@ export const NewReviewForm = () => {
                 </div>
                 <div>
                     <span>Rating:</span>
-                    <RatingInput value={form.rating} onChange={rating => dispatch({ type: "setRating", payload: rating})} />
+                    <RatingInput value={form.rating} onChange={rating => dispatch({ type: "setRating", payload: rating})} theme={theme} />
                 </div>
             </form>
-            <button onClick={() => dispatch({type: "resetForm"})}>Save</button>
+            <button onClick={() => dispatch({type: "resetForm"})} style={theme}>Save</button>
         </div>
     );
 };
