@@ -3,7 +3,7 @@ import { Restaurant } from '../restaurant/component.jsx';
 import { RestaurantTab } from '../restaurantTab/component.jsx';
 
 
-export const Restaurants = ( { restaurants, theme } ) => {
+export const Restaurants = ( { restaurants } ) => {
 
     const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]?.id);
 
@@ -14,7 +14,7 @@ export const Restaurants = ( { restaurants, theme } ) => {
                 restaurant={restaurant} 
                 onTabClick={setActiveRestaurant} 
                 activeTab={activeRestaurant}
-                theme={theme} />
+                 />
               )}
                 <Restaurant restaurant={
                 restaurants.find(restaurant => restaurant?.id == activeRestaurant)

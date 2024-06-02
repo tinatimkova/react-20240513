@@ -21,7 +21,7 @@ const reducer = (state, {type, payload}) => {
 
 export const NewReviewForm = () => {
     const [form, dispatch] = useReducer(reducer, DEFAULT_FORM_STATE);
-    const theme = useContext(ThemeContext);
+    const { darkTheme } = useContext(ThemeContext);
 
     return (
         <div>
@@ -40,10 +40,10 @@ export const NewReviewForm = () => {
                 </div>
                 <div>
                     <span>Rating:</span>
-                    <RatingInput value={form.rating} onChange={rating => dispatch({ type: "setRating", payload: rating})} theme={theme} />
+                    <RatingInput value={form.rating} onChange={rating => dispatch({ type: "setRating", payload: rating})} isDarkTheme={ darkTheme } />
                 </div>
             </form>
-            <button onClick={() => dispatch({type: "resetForm"})} style={theme}>Save</button>
+            <button onClick={() => dispatch({type: "resetForm"})} style={{backgroundColor: darkTheme ? 'grey' : null}}>Save</button>
         </div>
     );
 };

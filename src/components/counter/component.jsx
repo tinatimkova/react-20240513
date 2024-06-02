@@ -3,7 +3,7 @@ import { ThemeContext } from '../../contexts/theme';
 
 export const Counter = ({count, increment, decrement}) => {
 
-    const theme = useContext(ThemeContext);
+    const { darkTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         increment();
@@ -12,8 +12,8 @@ export const Counter = ({count, increment, decrement}) => {
 
     return (
         <div>
-            <button onClick={decrement} style={theme}>-</button>
+            <button onClick={decrement} style={{backgroundColor: darkTheme ? 'grey' : null}}>-</button>
                 {count}
-            <button onClick={increment} style={theme}>+</button>
+            <button onClick={increment} style={{backgroundColor: darkTheme ? 'grey' : null}}>+</button>
         </div>);
 };

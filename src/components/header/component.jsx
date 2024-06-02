@@ -2,12 +2,12 @@ import { ThemeContext } from '../../contexts/theme.js';
 import { ScrollProgressBar } from '../scrollProgressBar/component.jsx';
 import { useContext } from 'react';
 
-export const Header = ({ toggleTheme }) => { 
+export const Header = () => { 
 
-    const theme = useContext(ThemeContext);
+    const { darkTheme, toggleDarkTheme} = useContext(ThemeContext);
 
     return <header style={{'position': 'sticky', 'top': '0'}}>
           <ScrollProgressBar />
-          <button onClick={() => toggleTheme()} style={theme}>Toggle Theme</button>
+          <button onClick={() => toggleDarkTheme()} style={{backgroundColor: darkTheme ? 'grey' : null}}>Toggle Theme</button>
     </header>;
 }
