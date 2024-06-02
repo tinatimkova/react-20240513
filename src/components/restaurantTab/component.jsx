@@ -3,12 +3,13 @@ import { ThemeContext } from '../../contexts/theme';
 
 export const RestaurantTab = ({ restaurant, onTabClick, activeTab }) => {
 
-    const { darkTheme } = useContext(ThemeContext);
+    const { isDarkTheme} = useContext(ThemeContext);
+
 
     return <button 
         onClick={() => onTabClick(restaurant?.id)} 
         disabled={activeTab == restaurant?.id} 
-        style={{backgroundColor: darkTheme ? 'grey' : null}}>
+        style={{backgroundColor: isDarkTheme ? 'grey' : null}}>
             {restaurant?.name}
     </button>;
 };
