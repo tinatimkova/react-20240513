@@ -1,4 +1,5 @@
 import { Review } from '../review/component.jsx';
+import { NewReviewForm } from '../newReviewForm/component';
 
 export const Reviews = ( { reviews } ) => {
 
@@ -9,6 +10,7 @@ export const Reviews = ( { reviews } ) => {
                Boolean(review) && <li><Review review={review} /></li>
                 ))}
             </ul>
+            <NewReviewForm />
         </div>
     )
 }

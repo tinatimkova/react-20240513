@@ -4,5 +4,6 @@ export const Review = ( { review } ) => {
 
     return (
         <span>From: {user}. <q>{text}</q>. Rating: {rating}.</span>
+        
     )
 }
