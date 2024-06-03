@@ -6,13 +6,14 @@ import { useContext } from 'react';
 export const Header = () => { 
 
     const { toggleDarkTheme, isDarkTheme } = useContext(ThemeContext);
-    const [ currentUser, login, logout] = useContext(UserContext);
+    const [ currentUser, onUserLoggedIn, onUserLoggedOut] = useContext(UserContext);
 
     const style = isDarkTheme ? {backgroundColor: 'grey'} : null; 
 
     return <header style={{'position': 'sticky', 'top': '0'}}>
             <ScrollProgressBar />
             <button onClick={() => toggleDarkTheme()} style={style}>Toggle Theme</button>
-            {currentUser?.name ? login(currentUser, style) : logout(style)}
+            {currentUser?.name ? onUserLoggedIn(style) : onUserLoggedOut(style)}
+            <button onClick={() => openModal()}>Log In</button>
         </header>;
 }
