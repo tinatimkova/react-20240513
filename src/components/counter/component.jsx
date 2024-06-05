@@ -1,9 +1,7 @@
-import { useEffect, useContext } from 'react';
-import { ThemeContext } from '../../contexts/theme';
+import { useEffect } from 'react';
+import { Button } from '../button/component'; 
 
 export const Counter = ({count, increment, decrement}) => {
-
-    const { isDarkTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         increment();
@@ -12,8 +10,8 @@ export const Counter = ({count, increment, decrement}) => {
 
     return (
         <div>
-            <button onClick={decrement} style={{backgroundColor: isDarkTheme ? 'grey' : null}}>-</button>
+            <Button onClick={decrement}>-</Button>
                 {count}
-            <button onClick={increment} style={{backgroundColor: isDarkTheme ? 'grey' : null}}>+</button>
+            <Button onClick={increment}>+</Button>
         </div>);
 };

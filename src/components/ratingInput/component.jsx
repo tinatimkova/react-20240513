@@ -1,12 +1,13 @@
-export const RatingInput = ({ onChange, value, maxRating = 5, isDarkTheme }) => {
+import { Button } from "../button/component";
+
+export const RatingInput = ({ onChange, value, maxRating = 5}) => {
 
     return <div>
         {new Array(maxRating).fill(null).map((_, index) => 
-        <button 
+        <Button
         onClick={() => onChange(index + 1)} 
-        disabled={value == index + 1}
-        style={{backgroundColor: isDarkTheme ? 'grey' : null}}>
+        disabled={value == index + 1} >
             {index + 1}
-        </button>)}
+        </Button>)}
     </div>;
 };

@@ -1,15 +1,10 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../../contexts/theme';
+import { Button } from "../button/component";
 
 export const RestaurantTab = ({ restaurant, onTabClick, activeTab }) => {
 
-    const { isDarkTheme} = useContext(ThemeContext);
-
-
-    return <button 
+    return <Button 
         onClick={() => onTabClick(restaurant?.id)} 
-        disabled={activeTab == restaurant?.id} 
-        style={{backgroundColor: isDarkTheme ? 'grey' : null}}>
+        disabled={activeTab == restaurant?.id} >
             {restaurant?.name}
-    </button>;
+    </Button>;
 };
