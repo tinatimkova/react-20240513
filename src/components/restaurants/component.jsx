@@ -13,7 +13,8 @@ export const Restaurants = ( { restaurants } ) => {
                 <RestaurantTab 
                 restaurant={restaurant} 
                 onTabClick={setActiveRestaurant} 
-                activeTab={activeRestaurant} />
+                activeTab={activeRestaurant}
+                 />
               )}
                 <Restaurant restaurant={
                 restaurants.find(restaurant => restaurant?.id == activeRestaurant)
