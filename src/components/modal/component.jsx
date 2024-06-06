@@ -1,22 +1,28 @@
-import { useState } from 'react';
+import { createPortal } from "react-dom";
 
-export const Modal = () => {
-
-    const [isOpenModal, setIsOpenModal] = useState(false);
-    const [currentUser, setCurrentUser] = useState(null);
-    const []
-
-    const toggleModal = () => {
-        setIsOpenModal((isOpen) => !isOpen);
-    }
-
-    return <div>
-        <span>User name:</span>
-        <input 
-        type='text' 
-        value={currentUser.name} 
-        onChange={event => setCurrentUser(event.target.value)} />
-        <button onClick={() => toggleModal()}>Sign In</button>
-        <button onClick={() => toggleModal()}>Cancel</button>
-    </div>
+export const Modal = ({  onClose, children }) => {
+    return createPortal(
+        <>
+            <div onClick={ onClose } 
+            style={{ 
+                backgroundColor: 'grey',
+                position: 'absolute',
+                width: '100vw',
+                height: '100vh',
+                top: 0,
+                left: 0,
+                opacity: 0.3,
+                zIndex: 1
+                }}>
+            </div>
+            <div style={{ 
+                position: 'absolute', 
+                top: '50vh', 
+                left: '50vw', 
+                transform: 'translate(-50%, -50%)',
+                zIndex: 2
+                }}>
+                {children}
+            </div>
+        </>, document.getElementById('modal'));
 };

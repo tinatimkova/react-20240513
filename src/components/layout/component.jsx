@@ -4,8 +4,11 @@ import { Footer } from '../footer/component.jsx';
 export const Layout = ({ children }) => {
     return (
         <div>
-            <Header />
-            { children }
-            <Footer />
+            <div id='modal' style={{ position: 'relative', zIndex: 2 }}></div>
+            <div style={{ zIndex: 1 }}>
+                <Header />
+                { children }
+                <Footer />
+            </div>
         </div>);
 };

@@ -5,5 +5,5 @@ export const ThemeToggler = () => {
 
     const { toggleTheme } = useTheme(); 
 
-    return  <Button onClick={() => toggleTheme()} >Toggle Theme</Button>;
+    return  <Button onClick={toggleTheme} >Toggle Theme</Button>;
 };
