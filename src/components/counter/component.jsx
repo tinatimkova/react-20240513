@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Button } from '../button/component'; 
 
 export const Counter = ({count, increment, decrement}) => {
 
@@ -9,8 +10,8 @@ export const Counter = ({count, increment, decrement}) => {
 
     return (
         <div>
-            <button onClick={decrement}>-</button>
+            <Button onClick={decrement}>-</Button>
                 {count}
-            <button onClick={increment}>+</button>
+            <Button onClick={increment}>+</Button>
         </div>);
 };
