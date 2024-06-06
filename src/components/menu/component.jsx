@@ -6,7 +6,7 @@ export const Menu = ( { dishes } ) => {
             <h3>Menu</h3>
             <ul>
                 {dishes.map(dish => (
-                    !!dish && <li><Dish dish={dish} /></li>
+                    !!dish && <li><Dish dishId={dish} /></li>
                 ))}
             </ul>
         </div>

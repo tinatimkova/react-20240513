@@ -7,5 +7,3 @@ import { DishSlice } from "./entities/dish";
 export const store = configureStore({
     reducer: combineSlices(RestaurantSlice, UserSlice, ReviewSlice, DishSlice), 
 });
-
-console.log(store.getState());

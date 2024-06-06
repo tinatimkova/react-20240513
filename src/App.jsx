@@ -1,4 +1,3 @@
-import { restaurants } from './constants/mock';
 import { Restaurants } from './components/restaurants/component.jsx';
 import { Layout } from './components/layout/component.jsx';
 import { ThemeContextProvider } from './contexts/theme/provider.jsx';
@@ -12,7 +11,7 @@ export const App = () => {
         <ThemeContextProvider>
             <UserContextProvider>
                 <Layout>
-                {!!restaurants?.length && <Restaurants restaurants={restaurants} />}
+                <Restaurants />
                 </Layout>
             </UserContextProvider>
         </ThemeContextProvider>
