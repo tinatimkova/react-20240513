@@ -1,4 +1,4 @@
-import { Dish } from '../dish/component.jsx';
+import { DishContainer } from '../dish/container';
 
 export const Menu = ( { dishes } ) => {
     return (
@@ -6,7 +6,7 @@ export const Menu = ( { dishes } ) => {
             <h3>Menu</h3>
             <ul>
                 {dishes.map(dish => (
-                    !!dish && <li><Dish dishId={dish} /></li>
+                    !!dish && <li><DishContainer dishId={dish} /></li>
                 ))}
             </ul>
         </div>

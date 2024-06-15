@@ -1,16 +1,15 @@
 import { Menu } from '../menu/component.jsx';
 import { Reviews } from '../reviews/component.jsx';
-import { useSelector } from 'react-redux';
 
-export const Restaurant = ({ restaurantId }) => {
+export const Restaurant = ({ restaurant }) => {
 
-    const {name , menu, reviews} = useSelector(state => state.restaurant.entities[restaurantId]);
+    const { name, menu, reviews } = restaurant;
 
     return (
         <div>
             <h2>{name || 'Unknown'}</h2>
             {!!menu?.length && <Menu dishes={menu} />}
-            {!!reviews?.length && <Reviews reviews={reviews}/>}
+            {!!reviews?.length && <Reviews reviewIds={reviews} />}
         </div>
     );
 }

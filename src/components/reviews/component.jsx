@@ -1,13 +1,13 @@
-import { Review } from '../review/component.jsx';
 import { NewReviewForm } from '../newReviewForm/component';
+import { ReviewContainer } from '../review/container.jsx';
 
-export const Reviews = ( { reviews } ) => {
+export const Reviews = ( { reviewIds } ) => {
+    
     return (
         <div>
             <h3>Reviews</h3>
-            <ul>{reviews.map(review => (
-               Boolean(review) && <li><Review reviewId={review} /></li>
-                ))}
+            <ul>{reviewIds.map(review => 
+                <li><ReviewContainer reviewId={review} /></li>)}
             </ul>
             <NewReviewForm />
         </div>
