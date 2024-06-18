@@ -6,4 +6,5 @@ import { DishSlice } from "./entities/dish/dish";
 
 export const store = configureStore({
     reducer: combineSlices(RestaurantSlice, UserSlice, ReviewSlice, DishSlice), 
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });

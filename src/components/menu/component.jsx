@@ -1,6 +1,8 @@
 import { DishContainer } from '../dish/container';
+import { store } from '../../redux/index.js';
 
 export const Menu = ( { dishes } ) => {
+
     return (
         <div>
             <h3>Menu</h3>

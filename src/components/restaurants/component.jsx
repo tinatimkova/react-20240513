@@ -5,7 +5,7 @@ import { RestaurantContainer } from '../restaurant/container.jsx';
 export const Restaurants = () => {
 
     const [activeRestaurantId, setActiveRestaurantId] = useState();
-
+   
     return (
         <div>
                 <RestaurantTabsContainer

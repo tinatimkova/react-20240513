@@ -4,7 +4,7 @@ export const RestaurantTabs = ( { ids, onTabClick, activeTab} ) => {
 
    return (
    <div>
-   {!!ids?.length && ids.map(id => 
+   {ids.map(id => 
       <RestaurantTabContainer 
       id={id} 
       onClick={() => onTabClick(id)}
