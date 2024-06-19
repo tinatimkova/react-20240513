@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import { Restaurant } from '../restaurant/component.jsx';
 import { RestaurantTab } from '../restaurantTab/component.jsx';
+import { useSelector } from 'react-redux';
 
+export const Restaurants = () => {
 
-export const Restaurants = ( { restaurants } ) => {
-
-    const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]?.id);
+    const restaurantIds = useSelector(state => state.restaurant.ids);
+    const [activeRestaurant, setActiveRestaurant] = useState(restaurantIds[0]);
 
     return (
         <div>
-             {restaurants.map(restaurant => 
+             {!!restaurantIds?.length && restaurantIds.map(restaurantId => 
                 <RestaurantTab 
-                restaurant={restaurant} 
+                restaurantId={restaurantId} 
                 onTabClick={setActiveRestaurant} 
                 activeTab={activeRestaurant}
                  />
               )}
-                <Restaurant restaurant={
-                restaurants.find(restaurant => restaurant?.id == activeRestaurant)
-              } /> 
-                <Restaurant restaurant={restaurants[0]} />
-                <Restaurant restaurant={restaurants[0]} />
-                <Restaurant restaurant={restaurants[0]} />
-                <Restaurant restaurant={restaurants[0]} />
-                <Restaurant restaurant={restaurants[0]} />
+                <Restaurant restaurantId={
+                restaurantIds.find(restaurantId => restaurantId == activeRestaurant)
+              } />
         </div>
     );
 }
