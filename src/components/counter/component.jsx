@@ -8,7 +8,7 @@ export const Counter = ({count, increment, decrement}) => {
         decrement();
     }, [increment, decrement]);
 
-    return (
+    return ( 
         <div>
             <Button onClick={decrement}>-</Button>
                 {count}
