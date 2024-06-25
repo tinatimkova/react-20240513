@@ -1,14 +1,13 @@
 import { DishContainer } from '../dish/container';
-import { store } from '../../redux/index.js';
 
-export const Menu = ( { dishes } ) => {
+export const Menu = ( { dishIds } ) => {
 
     return (
         <div>
             <h3>Menu</h3>
             <ul>
-                {dishes.map(dish => (
-                    !!dish && <li><DishContainer dishId={dish} /></li>
+                {dishIds.map(id => (
+                <li><DishContainer dishId={id} /></li>
                 ))}
             </ul>
         </div>

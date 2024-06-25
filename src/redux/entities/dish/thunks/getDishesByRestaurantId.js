@@ -4,13 +4,18 @@ import { selectRestaurantDishIds } from "../../restaurant/selectors";
 
 export const getDishesByRestaurantId = createAsyncThunk(
     "dish/getDishesByRestaurantId",
-    async(restaurantId) => {
+    async({ restaurantId }) => {
         const response = await fetch(`http://localhost:3001/api/dishes?restaurantId=${restaurantId}`);
 
         return response.json();
     },
     {
-        condition: (restaurantId, { getState }) => {
+        condition: ({ forceRefetch = false, restaurantId } = {}, { getState }) => {
+
+            if (forceRefetch) {
+                return true;
+            }
+
            const loadedDishIds = selectDishIds(getState());
            const restaurantDishIds = selectRestaurantDishIds(getState(), restaurantId);
 

@@ -4,13 +4,18 @@ import { selectRestaurantReviewIds } from "./../../restaurant/selectors";
 
 export const getReviewsByRestaurantId = createAsyncThunk(
     'review/getReviewsByRestaurantId',
-    async(restaurantId) => {
+    async({ restaurantId }) => {
         const response = await fetch(`http://localhost:3001/api/reviews?restaurantId=${restaurantId}`);
 
         return response.json();
     },
     {
-        condition: (restaurantId, { getState }) => {
+        condition: ({ forceRefetch = false, restaurantId } = {}, { getState }) => {
+            
+            if (forceRefetch) {
+                return true;
+            }
+
             const loadedReviewIds = selectReviewIds(getState());
             const restaurantReviewIds = selectRestaurantReviewIds(getState(), restaurantId);
 
